@@ -1,9 +1,16 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
+from blog.models import *
+from blog.filters import *
+from django.views.generic import TemplateView, ListView, DetailView
+from django_filters.views import FilterView
 
 
-# class IndexView(TemplateView):
-#     template_name = ''
-#
-#     def get(self, request, *args, **kwargs):
+class IndexView(FilterView):
+    model = Article
+    filterset_class = ArticleFilter
+    template_name = 'pages/index.html'
 
+
+class ArticleDetailView(DetailView):
+    model = Article
+    template_name = 'pages/article_detail.html'

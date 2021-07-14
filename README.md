@@ -1,5 +1,5 @@
 # Think About
-##### Tiny articles worth thinking about
+## Tiny articles worth thinking about
 
 ### .env example
 ```

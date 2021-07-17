@@ -19,6 +19,7 @@ from django.conf.urls.static import static
 from think_about import settings
 
 urlpatterns = [
+    path('admin/doc/', include('django.contrib.admindocs.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
     path('user/', include('account.urls')),

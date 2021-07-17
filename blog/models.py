@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
+from django.core.validators import validate_image_file_extension
 
 
 class Category(models.Model):
@@ -27,7 +28,8 @@ class Article(models.Model):
     user = models.ForeignKey('account.User', verbose_name=_('User'), on_delete=models.CASCADE)
     title = models.CharField(max_length=200, verbose_name=_('Title'))
     description = models.TextField(verbose_name=_('Description'))
-    image = models.ImageField(upload_to='article_images/', verbose_name=_('Cover of the article'))
+    image = models.ImageField(upload_to='article_images/', verbose_name=_('Cover of the article'),
+                              validators=[validate_image_file_extension])
 
     class Meta:
         verbose_name = _("Article")

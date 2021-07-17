@@ -1,5 +1,5 @@
-from blog.models import *
-from django_filters import *
+from blog.models import Article
+from django_filters import FilterSet, CharFilter
 
 
 class ArticleFilter(FilterSet):

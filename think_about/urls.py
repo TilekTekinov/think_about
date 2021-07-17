@@ -19,7 +19,9 @@ from django.conf.urls.static import static
 from think_about import settings
 
 urlpatterns = [
+    path('accounts/', include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
+    path('user/', include('account.urls')),
     path('api/', include('api.urls')),
     path('', include('blog.urls'))
 ]

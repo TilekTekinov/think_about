@@ -9,6 +9,7 @@ class CategoryListSerializer(ModelSerializer):
         fields = '__all__'
 
     def to_representation(self, instance):
+        """ Representation Category parent """
         self.fields['parent'] = CategoryListSerializer(read_only=True)
         return super(CategoryListSerializer, self).to_representation(instance)
 

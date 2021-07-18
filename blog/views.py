@@ -16,6 +16,7 @@ from blog.models import Category, Article
 
 
 class ArticleListView(LoginRequiredMixin, FilterView):
+    """ List all Articles with filter by category, user or search by title """
     model = Article
     paginate_by = 2
     ordering = ['-id']
@@ -24,6 +25,7 @@ class ArticleListView(LoginRequiredMixin, FilterView):
 
 
 class ArticleCreateView(LoginRequiredMixin, CreateView):
+    """ Create new Article """
     model = Article
     fields = ('category', 'title', 'description', 'image')
     template_name = 'article/create_or_update.html'
@@ -40,11 +42,13 @@ class ArticleCreateView(LoginRequiredMixin, CreateView):
 
 
 class ArticleDetailView(LoginRequiredMixin, DetailView):
+    """ View Article detail """
     model = Article
     template_name = 'article/article_detail.html'
 
 
 class ArticleUpdateView(LoginRequiredMixin, UpdateView):
+    """ Update Article category, title, description, image fields. User set by logged in user """
     model = Article
     fields = ('category', 'title', 'description', 'image')
     template_name = 'article/create_or_update.html'
@@ -56,12 +60,14 @@ class ArticleUpdateView(LoginRequiredMixin, UpdateView):
 
 
 class ArticleDeleteView(LoginRequiredMixin, DeleteView):
+    """ Delete Article """
     model = Article
     template_name = 'article/article_delete.html'
     success_url = reverse_lazy('article-list')
 
 
 class CategoryCreateView(LoginRequiredMixin, CreateView):
+    """ Create new Category """
     model = Category
     fields = '__all__'
     template_name = 'article/create_or_update.html'
@@ -74,6 +80,7 @@ class CategoryCreateView(LoginRequiredMixin, CreateView):
 
 
 class CategoryListView(LoginRequiredMixin, ListView):
+    """ List all Categories """
     model = Category
     paginate_by = 10
     ordering = ['-id']
@@ -81,6 +88,7 @@ class CategoryListView(LoginRequiredMixin, ListView):
 
 
 class CategoryUpdateView(LoginRequiredMixin, UpdateView):
+    """ Update Category title, parent fields """
     model = Category
     fields = '__all__'
     template_name = 'article/create_or_update.html'
@@ -92,6 +100,7 @@ class CategoryUpdateView(LoginRequiredMixin, UpdateView):
 
 
 class CategoryDeleteView(LoginRequiredMixin, DeleteView):
+    """ Delete Category """
     model = Category
     template_name = 'category/category_delete.html'
     success_url = reverse_lazy('category-list')

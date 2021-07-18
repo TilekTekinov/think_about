@@ -91,3 +91,15 @@ Finally, you can run the project and test
 ```shell
 $ python manage.py runserver
 ```
+
+### Documentations
+For generate documentations use follow command in `docs` folder
+```shell
+/docs$ make html
+```
+It's generate all project documentations
+
+Open in browser `index.html`
+```
+<project_dir>/docs/_build/html/index.html
+```

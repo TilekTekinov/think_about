@@ -1,7 +1,6 @@
 # Think About
-## Tiny articles worth thinking about
+#### Tiny articles worth thinking about
 
-# Steps for run project
 ## Clone repository
 Enter your git **Username** and git **Password**
 ```shell
@@ -97,7 +96,7 @@ For generate documentations use follow command in `docs` folder
 ```shell
 /docs$ make html
 ```
-It's generate all project documentations
+It's generate all project documentations, or visit `/admin/doc`
 
 Open in browser `index.html`
 ```
